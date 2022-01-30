@@ -1,0 +1,35 @@
+/*---------------SCROLL HACIA ABAJO------------------*/
+
+const myButton = document.getElementById("myButton");
+
+myButton.addEventListener("click", scroll);
+console.log(scroll);
+
+function scroll() {
+    window.scrollBy({
+        top: 10000,
+        behavior: "smooth",
+    });
+}
+
+/*-----------------BARS MENU----------------------------*/
+
+window.addEventListener("load", () => {
+    const menu_header = document.querySelector(".header");
+    const btn_menu = document.querySelector(".bars_menu");
+
+    btn_menu.addEventListener("click", () => {
+        menu_header.classList.toggle("header_open");
+        const vivi_tu_hogar = document.querySelector(".subdiv_inicio");
+        let style_element = window.getComputedStyle(vivi_tu_hogar);
+        let element_display = style_element.getPropertyValue("display");
+
+        setTimeout(() => {
+            if (element_display === "flex") {
+                vivi_tu_hogar.style.display = "none";
+            } else if (element_display === "none") {
+                vivi_tu_hogar.style.display = "flex";
+            }
+        }, 200);
+    });
+});
